@@ -14,12 +14,13 @@ native scan per run instead of one step per character, caching slugs per case,
 and counting words without allocating.
 
 Measured locally (Node v24.22.1, practice set of 3 cases, `run()` only,
-trimmed median of repeated runs): about 140 ms against the house baseline's
-about 530 ms on the same machine, roughly 3.8x faster, with identical answers
-on the practice set, on 48 freshly drawn generated sites, and on 46
-hand-built edge cases (template parse failures, self-recursive includes,
-every front-matter refusal reason, CRLF sources, shadowed static files,
-empty sites).
+trimmed mean of 9 runs, the harness's own metric): about 180 ms against the
+house baseline's about 590 ms on the same machine, roughly 3.3x faster, with
+identical answers on the practice set, on 48 freshly drawn generated sites,
+and on 46 hand-built edge cases (template parse failures, self-recursive
+includes, every front-matter refusal reason, CRLF sources, shadowed static
+files, empty sites). End to end (`node main.ts`, CPU time per run, net of a
+do-nothing control): about 465 ms against the baseline's about 1,125 ms.
 
 ## Run it
 
